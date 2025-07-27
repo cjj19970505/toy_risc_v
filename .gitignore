@@ -1,0 +1,90 @@
+# Quartus generated folders
+/db/
+/incremental_db/
+/simulation/
+/.qsys_edit/
+/greybox_tmp/
+/*_sim/
+/output_files/
+
+# Quartus generated files
+*.rpt
+*.smsg
+*.summary
+*.done
+*.jdi
+*.pin
+*.sof
+*.sta*
+*.asm.*
+*.eda.*
+*.fit.*
+*.map.*
+*.sld
+*.qws
+*.qpf
+*.qsf.bak
+*.qarlog
+*.qar
+*.qdf
+*.sopcinfo
+*.stp
+*.vcd
+*_inst.vhd
+*_generation_script*
+*.bak
+*.cmp
+*.html
+*.vho
+*.vo
+*.sdo
+*.sft
+
+# Modelsim/Questa generated files
+/modelsim/
+*.wlf
+modelsim.ini
+*.mti
+*.mpf
+transcript
+*msim_setup.tcl
+_vmake
+_info
+_lib.qdb
+*.qdb
+*.qpg
+*.qtl
+
+# IP/Platform Designer generated files
+**/ip/**/synth/
+**/ip/**/sim/
+**/ip/**/testbench/
+**/ip/**/*.spd
+**/ip/**/*.xml
+**/ip/**/*.bsf
+**/ip/**/*.ppf
+**/ip/**/*.qip
+**/ip/**/*.sip
+
+# Other generated files
+*~
+*.o
+*.log
+*.tmp
+
+# RISC-V specific
+*.elf
+*.hex
+*.bin
+*.map
+*.lst
+*.dump
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# Additional common patterns
+build/
+dist/
+.DS_Store
