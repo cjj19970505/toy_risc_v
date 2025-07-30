@@ -1,0 +1,79 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 2025  Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Altera and sold by Altera or its authorized distributors.  Please
+refer to the Altera Software License Subscription Agreements 
+on the Quartus Prime software download page.
+*/
+(header "symbol" (version "1.1"))
+(symbol
+	(rect 16 16 256 160)
+	(text "RiscVControl" (rect 5 0 60 12)(font "Arial" ))
+	(text "inst" (rect 8 128 20 140)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "instruct[31..0]" (rect 0 0 51 12)(font "Arial" ))
+		(text "instruct[31..0]" (rect 21 27 72 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 3))
+	)
+	(port
+		(pt 240 32)
+		(output)
+		(text "instruct_type[2..0]" (rect 0 0 71 12)(font "Arial" ))
+		(text "instruct_type[2..0]" (rect 148 27 219 39)(font "Arial" ))
+		(line (pt 240 32)(pt 224 32)(line_width 3))
+	)
+	(port
+		(pt 240 48)
+		(output)
+		(text "dmem_write_en" (rect 0 0 64 12)(font "Arial" ))
+		(text "dmem_write_en" (rect 155 43 219 55)(font "Arial" ))
+		(line (pt 240 48)(pt 224 48)(line_width 1))
+	)
+	(port
+		(pt 240 64)
+		(output)
+		(text "dmem_read_size[1..0]" (rect 0 0 88 12)(font "Arial" ))
+		(text "dmem_read_size[1..0]" (rect 131 59 219 71)(font "Arial" ))
+		(line (pt 240 64)(pt 224 64)(line_width 3))
+	)
+	(port
+		(pt 240 80)
+		(output)
+		(text "dmem_write_size[1..0]" (rect 0 0 88 12)(font "Arial" ))
+		(text "dmem_write_size[1..0]" (rect 131 75 219 87)(font "Arial" ))
+		(line (pt 240 80)(pt 224 80)(line_width 3))
+	)
+	(port
+		(pt 240 96)
+		(output)
+		(text "rf_we3" (rect 0 0 28 12)(font "Arial" ))
+		(text "rf_we3" (rect 191 91 219 103)(font "Arial" ))
+		(line (pt 240 96)(pt 224 96)(line_width 1))
+	)
+	(port
+		(pt 240 112)
+		(output)
+		(text "read_sign_extend" (rect 0 0 70 12)(font "Arial" ))
+		(text "read_sign_extend" (rect 149 107 219 119)(font "Arial" ))
+		(line (pt 240 112)(pt 224 112)(line_width 1))
+	)
+	(drawing
+		(rectangle (rect 16 16 224 128)(line_width 1))
+	)
+)

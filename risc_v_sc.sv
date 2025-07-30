@@ -1,6 +1,6 @@
 // Single-cycle RV32I
 
-module risc_v_sc_control(input logic[31:0] instruct,
+module RiscVControl(input logic[31:0] instruct,
 								 output logic[2:0] instruct_type, // 0:R, 1:I,2:S,3:B,4:U,5:J, this can be used for 
 							    output logic dmem_write_en,
 								 output logic[1:0] dmem_read_size, // 0: byte, 1: half, 2: word
@@ -63,7 +63,7 @@ module risc_v_sc_control(input logic[31:0] instruct,
 	end			
 endmodule
 
-module sign_extend(input logic[31:0] in_word,
+module SignExtend(input logic[31:0] in_word,
 						 input logic[2:0] size_loged,
 						 output logic[31:0] out_word);
 	always_comb begin
@@ -76,7 +76,7 @@ module sign_extend(input logic[31:0] in_word,
 	end
 endmodule
 
-module instruction_imm(input logic[31:0] instruct,
+module InstructionImm(input logic[31:0] instruct,
 					input logic[2:0] instruct_type,
 					output logic[31:0] imm); // 0:R, 1:I,2:S,3:B,4:U,5:J
 	always_comb begin
@@ -92,7 +92,7 @@ module instruction_imm(input logic[31:0] instruct,
 	end
 endmodule
 
-module risc_v_sc (input logic clk, reset,
+module SingleCycleRiscV (input logic clk, reset,
 						// memory interfaces
 						output logic[31:0] imem_addr,
 						input logic[31:0] imem_read_data,
@@ -115,16 +115,16 @@ module risc_v_sc (input logic clk, reset,
 	logic[4:0] rf_ra1, rf_ra2, rf_wa3;
 	logic[31:0] rf_rd1, rf_rd2, rf_wd3;
 	
-	register_file #(.ADDR_W(5), .XLEN(32)) regfile(clk, rf_we3, rf_ra1, rf_ra2, rf_wa3, rf_wd3, rf_rd1, rf_rd2);
+	RegisterFile #(.ADDR_W(5), .XLEN(32)) regfile(clk, rf_we3, rf_ra1, rf_ra2, rf_wa3, rf_wd3, rf_rd1, rf_rd2);
 	
 	logic[31:0] imm;
 	logic[2:0] instruct_type;
-	instruction_imm inst_imm(instruct, instruct_type, imm);
+	InstructionImm inst_imm(instruct, instruct_type, imm);
 	
 	logic sign_extend_en;
 	logic[1:0] dmem_read_size; // dmem_write_size is defined in the parameters
 	logic[31:0] sign_extended_dmem_read_data; // may not be signed extended
-	sign_extend se_dmem_read(dmem_read_data, dmem_read_size, sign_extended_dmem_read_data);
+	SignExtend se_dmem_read(dmem_read_data, dmem_read_size, sign_extended_dmem_read_data);
 	
 	// LW
 	assign rf_ra1 = instruct[19:15];
@@ -136,8 +136,8 @@ module risc_v_sc (input logic clk, reset,
 	assign rf_ra2 = instruct[24:20];
 	assign dmem_write_data = rf_rd2;
 	
-	risc_v_sc_control control(instruct,
-									  instruct_type, dmem_write_en, dmem_read_size, dmem_write_size, rf_we3, sign_extend_en);
+	RiscVControl control(instruct,
+						 instruct_type, dmem_write_en, dmem_read_size, dmem_write_size, rf_we3, sign_extend_en);
 	
 	
 	always_ff @(posedge clk) begin
