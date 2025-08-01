@@ -77,7 +77,7 @@ module SignExtend(input logic[31:0] in_word,
 endmodule
 
 module InstructionImm(input logic[31:0] instruct,
-					input logic[2:0] instruct_type,
+					input logic[1:0] instruct_type,
 					output logic[31:0] imm); // 0:R, 1:I,2:S,3:B,4:U,5:J
 	always_comb begin
 		imm = 32'h0;
