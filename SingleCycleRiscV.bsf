@@ -53,6 +53,13 @@ on the Quartus Prime software download page.
 		(line (pt 0 80)(pt 16 80)(line_width 3))
 	)
 	(port
+		(pt 0 96)
+		(input)
+		(text "debug_reg_addr[4..0]" (rect 0 0 87 12)(font "Arial" ))
+		(text "debug_reg_addr[4..0]" (rect 21 91 108 103)(font "Arial" ))
+		(line (pt 0 96)(pt 16 96)(line_width 3))
+	)
+	(port
 		(pt 296 32)
 		(output)
 		(text "imem_addr[31..0]" (rect 0 0 69 12)(font "Arial" ))
@@ -86,6 +93,13 @@ on the Quartus Prime software download page.
 		(text "dmem_write_data[31..0]" (rect 0 0 95 12)(font "Arial" ))
 		(text "dmem_write_data[31..0]" (rect 180 91 275 103)(font "Arial" ))
 		(line (pt 296 96)(pt 280 96)(line_width 3))
+	)
+	(port
+		(pt 296 112)
+		(output)
+		(text "debug_reg_read[31..0]" (rect 0 0 89 12)(font "Arial" ))
+		(text "debug_reg_read[31..0]" (rect 186 107 275 119)(font "Arial" ))
+		(line (pt 296 112)(pt 280 112)(line_width 3))
 	)
 	(drawing
 		(rectangle (rect 16 16 280 128)(line_width 1))

@@ -101,9 +101,9 @@ module main_testbench();
 	DummyMemory #(.SIZE(DUMMY_MEM_SIZE), .START_ADDR(DUMMY_START_ADDRESS)) dummy_mem(clk, mem_addr, mem_ro_addr2, mem_we, mem_write_size, mem_wd, mem_rd, mem_rd2, debug_byte_index, debug_read_word);
 	
 	
-	// logic cpu_reset;
+	logic cpu_reset;
 	
-	// SingleCycleRiscV cpu(clk, cpu_reset, loader_mem_ro_addr2, mem_rd2, mem_addr, loader_mem_we, loader_mem_write_size, loader_mem_wd, mem_rd);
+	SingleCycleRiscV cpu(clk, cpu_reset, cpu_mem_ro_addr2, mem_rd2, cpu_mem_addr, cpu_mem_we, cpu_mem_write_size, cpu_mem_wd, mem_rd);
 	
 	
 	// load initial memory
@@ -165,7 +165,21 @@ module main_testbench();
 			end
 		end
 		$display("Read test pass.");
+		
 		$stop(2);
+		
+		loader_or_cpu = 1;
+		#1 clk = 0;
+		cpu_reset = 1;
+		#1 clk = 1;
+		#1 clk = 0;
+		#1 cpu_reset = 0;
+		
+		while (1) begin
+			#1 clk = 1;
+			#1 clk = 0;
+		end
+		
 	end
 	
 	
