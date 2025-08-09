@@ -119,7 +119,7 @@ module main_testbench();
 	initial begin
 		loader_or_cpu = 0;
 		clk = 1;
-		fd = $fopen("data.elf", "rb");
+		fd = $fopen("../../test/test1.elf", "rb");
 		if(fd==0) begin
 			$fatal(1, "Can't open elf file.");
 		end
